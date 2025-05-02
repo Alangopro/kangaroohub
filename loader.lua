@@ -23,8 +23,6 @@ local scripts = {
 }
 
 local placeId = game.PlaceId
-print("Current PlaceId:", placeId)
-
 local src = scripts[placeId]
 
 local fnlSuccess, fnlResult = pcall(function()
@@ -50,7 +48,6 @@ if src then
 
     local ok, err = pcall(function()
         local scriptText = game:HttpGet(src)
-        print("Loaded script content:\n", scriptText:sub(1, 200))
         loadstring(scriptText)()
     end)
 
@@ -58,5 +55,15 @@ if src then
         warn("❌ Failed to execute game script:", err)
     end
 else
+    if fnlSuccess and fnlResult then
+        fnlResult:MakeNotification({
+            Title = "🦘 × KangarooHub",
+            Text = "Your game is not supported!",
+            Duration = 3
+        })
+    else
+        warn("⚠️ Notification module not loaded; skipping notification")
+    end
+    setclipboard(game.PlaceId)
     print("❌ This game is not supported. PlaceId:", placeId)
 end
