@@ -17,7 +17,7 @@
 --]]
 
 local scripts = {
-    [9944150959] = "https://github.com/Alangopro/kangaroohub/raw/refs/heads/main/surviveinafrica.lua"
+    [9944150959] = "https://github.com/Alangopro/kangaroohub/raw/refs/heads/main/games/surviveinafrica.lua"
 }
 
 local src = scripts[game.PlaceId]
