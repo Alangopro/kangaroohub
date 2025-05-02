@@ -21,4 +21,13 @@ local scripts = {
 }
 
 local src = scripts[game.PlaceId]
-if src then loadstring(game:HttpGet(src))() end
+local fnl = loadstring(game:HttpGet("https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua"))()
+if src then
+    fnl:MakeNotification({
+        Title = "🦘 × KangarooHub",
+        Text = "Your game is supported, loading script!",
+        Duration = 3
+    })
+    loadstring(game:HttpGet(src))()
+end
+
